@@ -36,45 +36,87 @@ public class LoginPage {
     }
 
     public static WebElement openOverview(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("forgotPasswordHead")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("overviewButton")));
         return element;
     }
 
     public static WebElement openBatches(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("batchesButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("batchesButton")));
         return element;
     }
 
     public static WebElement openLocations(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("locationsButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("locationsButton")));
         return element;
     }
 
     public static WebElement openCurricula(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("curriculaButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("curriculaButton")));
         return element;
     }
 
     public static WebElement openTrainers(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("trainersButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("trainersButton")));
         return element;
     }
 
     public static WebElement openProfile(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("profileButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("profileButton")));
         return element;
     }
 
     public static WebElement openReports(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("reportsButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("reportsButton")));
         return element;
     }
 
     public static WebElement openSettings(WebDriver wd) {
-        element = wd.findElement(By.id(PropUtil.getVal("settingsButton")));
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("settingsButton")));
+        return element;
+    }
+    public static WebElement titleOverview(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("overviewTitle")));
         return element;
     }
 
+    public static WebElement titleBatchesTrainer(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("batchesTitleTrainer")));
+        return element;
+    }
+
+    public static WebElement titleBatchesVP(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("batchesTitleVP")));
+        return element;
+    }
+
+    public static WebElement titleLocations(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("locationsTitle")));
+        return element;
+    }
+
+    public static WebElement titleCurricula(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("curriculaTitle")));
+        return element;
+    }
+
+    public static WebElement titleTrainers(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("trainersTitle")));
+        return element;
+    }
+
+    public static WebElement titleProfile(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("profileTitle")));
+        return element;
+    }
+    public static WebElement titleReports(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("reportsTitle")));
+        return element;
+    }
+
+    public static WebElement titleSettings(WebDriver wd) {
+        element = wd.findElement(By.cssSelector(PropUtil.getVal("settingsTitle")));
+        return element;
+    }
 
     @FindBy(xpath = "//a[@href='mercurywelcome.php']")
     public WebElement homeLink;
