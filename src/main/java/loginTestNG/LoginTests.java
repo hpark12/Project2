@@ -5,7 +5,7 @@ import com.worldgate.util.MasterDriver;
 import com.worldgate.util.PropUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
@@ -16,12 +16,12 @@ import org.testng.annotations.Test;
 public class LoginTests {
 
     private static WebDriver driver;
-    private static Wait wait;
+    private static WebDriverWait wait;
 
     @BeforeSuite(groups = {"loginVP", "loginTrainer"})
     static void baseMethod() {
         driver = MasterDriver.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, 10);
     }
 
 
@@ -49,6 +49,7 @@ public class LoginTests {
 
     @Test(groups = {"loginTrainer"}, priority = 2)
     public void openBatchesTrainer() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openBatches(driver)));
         Thread.sleep(400);
         LoginPage.openBatches(driver).click();
         Thread.sleep(300);
@@ -57,7 +58,9 @@ public class LoginTests {
 
     @Test(groups = {"loginVP"}, priority = 2)
     public void openBatchesVP() throws InterruptedException {
-        Thread.sleep(400);
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openBatches(driver)));
+
+        Thread.sleep(300);
         LoginPage.openBatches(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleBatchesVP(driver).getText(), PropUtil.getVal("batchesTitleValVP"));
@@ -65,13 +68,17 @@ public class LoginTests {
 
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 2)
     public void openLocations() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openLocations(driver)));
+
         LoginPage.openLocations(driver).click();
-        Thread.sleep(300);
+        Thread.sleep(450);
         Assert.assertEquals(LoginPage.titleLocations(driver).getText(), PropUtil.getVal("locationsTitleVal"));
     }
 
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 2)
     public void openCurricula() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openCurricula(driver)));
+
         LoginPage.openCurricula(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleCurricula(driver).getText(), PropUtil.getVal("curriculaTitleVal"));
@@ -79,6 +86,8 @@ public class LoginTests {
 
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 2)
     public void openTrainers() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openTrainers(driver)));
+
         LoginPage.openTrainers(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleTrainers(driver).getText(), PropUtil.getVal("trainersTitleVal"));
@@ -86,6 +95,8 @@ public class LoginTests {
 
     @Test(groups = {"loginTrainer"}, priority = 2)
     public void openProfile() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openProfile(driver)));
+
         LoginPage.openProfile(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleProfile(driver).getText(), PropUtil.getVal("profileTitleVal"));
@@ -94,6 +105,8 @@ public class LoginTests {
     @Ignore
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 2)
     public void openReports() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openReports(driver)));
+
         LoginPage.openReports(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleReports(driver).getText(), PropUtil.getVal("reportsTitleVal"));
@@ -101,6 +114,8 @@ public class LoginTests {
 
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 2)
     public void openSettings() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openSettings(driver)));
+
         LoginPage.openSettings(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleSettings(driver).getText(), PropUtil.getVal("settingsTitleVal"));
@@ -108,6 +123,8 @@ public class LoginTests {
 
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 2)
     public void openOverview() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(LoginPage.openOverview(driver)));
+
         LoginPage.openOverview(driver).click();
         Thread.sleep(300);
         Assert.assertEquals(LoginPage.titleOverview(driver).getText(), PropUtil.getVal("overviewTitleVal"));
