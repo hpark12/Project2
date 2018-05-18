@@ -131,10 +131,12 @@ public class LoginTests {
     }
 
     @Test(groups = {"loginVP", "loginTrainer"}, priority = 3)
-    public void logOut() {
+    public void logOut() throws InterruptedException {
 
         String tempxpath = PropUtil.getVal("logoutButton");
         driver.findElement(By.xpath(tempxpath)).click();
+        Thread.sleep(150);
+        driver.navigate().refresh();
     }
 
     @Test(groups = {"forgotPassword"})
@@ -149,7 +151,7 @@ public class LoginTests {
 
     @AfterSuite(groups = {"loginVP", "loginTrainer"})
     public void exitTest() {
-        MasterDriver.logout(driver);
+        driver.quit();
     }
 
 }
